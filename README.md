@@ -5,9 +5,9 @@ A simple UNIX command interpreter that replicates functionalities of the simple 
 
 Basics of programming, Basics of C, and Basics of thinking like an engineer implemented.
 
-This program was entirely written in C as a milestone project for ALX Africa Software Engineering.
-
 Additional functions are also included.
+
+This program was entirely written in C as a milestone project for ALX Africa Software Engineering.
 
 <h2>Installation</h2>
 
