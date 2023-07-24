@@ -1,8 +1,13 @@
 # simple_shell
 <h1>Description</h1>
 
-A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): Basics of programming, Basics of C, and Basics of thinking like an engineer.
-This program was entirely written in C as a milestone project for ALX Africa Software Engineering. Additional functions are also included.
+A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): 
+
+Basics of programming, Basics of C, and Basics of thinking like an engineer implemented.
+
+Additional functions are also included.
+
+This program was entirely written in C as a milestone project for ALX Africa Software Engineering.
 
 <h2>Installation</h2>
 
@@ -14,7 +19,9 @@ After compilation, the resulting program can run stand-alone, either in interact
 
 <h4>Interactive Mode</h4>
 
-In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
+In interactive mode, simply run the program and wait for the prompt to appear. 
+
+From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
 
 <h5>Non-Interactive Mode</h5>
 
