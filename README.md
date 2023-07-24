@@ -27,7 +27,7 @@ In non-interactive mode, the program will exit after finishing your desired comm
 
 Our shell has support for the following built-in commands:
 
-<h7>Command	Definition</h7>
+<h5>Command	Definition</h5>
 
 env	Print the environment.
 cd [dir]	Change the directory.
