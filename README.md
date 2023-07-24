@@ -41,5 +41,5 @@ Our shell has support for the following built-in commands:
 <summary>Authors</summary>
 
 * [**@Richard Miruka**](https://github.com/RichardMiruka)
-* **@George Mwaura**
+* [**@Ndungu George**](https://github.com/Ndungugeorge)
 </details>
