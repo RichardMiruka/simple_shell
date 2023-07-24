@@ -19,7 +19,9 @@ After compilation, the resulting program can run stand-alone, either in interact
 
 <h4>Interactive Mode</h4>
 
-In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
+In interactive mode, simply run the program and wait for the prompt to appear. 
+
+From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
 
 <h5>Non-Interactive Mode</h5>
 
