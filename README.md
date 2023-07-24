@@ -40,6 +40,6 @@ Our shell has support for the following built-in commands:
 <details>
 <summary>Authors</summary>
 
-* [**@Richard Miruka**] 
+* [**@Richard Miruka**](https://github.com/RichardMiruka)
 * **@George Mwaura**
 </details>
