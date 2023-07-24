@@ -2,8 +2,11 @@
 <h1>Description</h1>
 
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): 
+
 Basics of programming, Basics of C, and Basics of thinking like an engineer implemented.
+
 This program was entirely written in C as a milestone project for ALX Africa Software Engineering.
+
 Additional functions are also included.
 
 <h2>Installation</h2>
