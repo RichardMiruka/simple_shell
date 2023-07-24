@@ -21,6 +21,7 @@ In interactive mode, simply run the program and wait for the prompt to appear. F
 In non-interactive mode, echo your desired command and pipe it into the program like this:
 
 ```echo "ls" | ./shell```
+
 In non-interactive mode, the program will exit after finishing your desired command(s).
 
 <h6>Included Built-Ins</h6>
