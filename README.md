@@ -28,6 +28,7 @@ In non-interactive mode, the program will exit after finishing your desired comm
 Our shell has support for the following built-in commands:
 
 #Command	Definition
+
 env	Print the environment.
 cd [dir]	Change the directory.
 unsetenv [var]	Remove an environment variable.
