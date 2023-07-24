@@ -1,27 +1,27 @@
 # simple_shell
-Description
+#Description
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): Basics of programming, Basics of C, Basics of thinking like an engineer.
 This program was entirely written in C as a milestone project for ALX Africa Software Engineering. Additional functions are also included.
 
-Installation
+#Installation
 Clone this repository into your working directory. Files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -std=gnu89
 
-Usage
+#Usage
 After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
 
-Interactive Mode
+#Interactive Mode
 In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
 
-Non-Interactive Mode
+#Non-Interactive Mode
 In non-interactive mode, echo your desired command and pipe it into the program like this:
 
 echo "ls" | ./shell
 In non-interactive mode, the program will exit after finishing your desired command(s).
 
-Included Built-Ins
+#Included Built-Ins
 Our shell has support for the following built-in commands:
 
-Command	Definition
+#Command	Definition
 env	Print the environment.
 cd [dir]	Change the directory.
 unsetenv [var]	Remove an environment variable.
