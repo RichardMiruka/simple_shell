@@ -1,4 +1,5 @@
 #include "main_unique.h"
+#include <stdlib.h>
 
 /**
  * _realloc_unique - reallocates a memory block.
@@ -12,31 +13,31 @@
  */
 void *_realloc_unique(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *newptr;
+    void *newptr;
 
-	if (ptr == NULL)
-		return (malloc(new_size));
+    if (ptr == NULL)
+        return (malloc(new_size));
 
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
+    if (new_size == 0)
+    {
+        free(ptr);
+        return (NULL);
+    }
 
-	if (new_size == old_size)
-		return (ptr);
+    if (new_size == old_size)
+        return (ptr);
 
-	newptr = malloc(new_size);
-	if (newptr == NULL)
-		return (NULL);
+    newptr = malloc(new_size);
+    if (newptr == NULL)
+        return (NULL);
 
-	if (new_size < old_size)
-		_memcpy_unique(newptr, ptr, new_size);
-	else
-		_memcpy_unique(newptr, ptr, old_size);
+    if (new_size < old_size)
+        custom_memcpy(newptr, ptr, new_size);
+    else
+        custom_memcpy(newptr, ptr, old_size);
 
-	free(ptr);
-	return (newptr);
+    free(ptr);
+    return (newptr);
 }
 
 /**
@@ -51,41 +52,42 @@ void *_realloc_unique(void *ptr, unsigned int old_size, unsigned int new_size)
  */
 char **_reallocdp_unique(char **ptr, unsigned int old_size, unsigned int new_size)
 {
-	char **newptr;
-	unsigned int i;
+    char **newptr;
+    unsigned int i;
 
-	if (ptr == NULL)
-		return (malloc(sizeof(char *) * new_size));
+    if (ptr == NULL)
+        return (malloc(sizeof(char *) * new_size));
 
-	if (new_size == old_size)
-		return (ptr);
+    if (new_size == old_size)
+        return (ptr);
 
-	newptr = malloc(sizeof(char *) * new_size);
-	if (newptr == NULL)
-		return (NULL);
+    newptr = malloc(sizeof(char *) * new_size);
+    if (newptr == NULL)
+        return (NULL);
 
-	for (i = 0; i < old_size; i++)
-		newptr[i] = ptr[i];
+    for (i = 0; i < old_size; i++)
+        newptr[i] = ptr[i];
 
-	free(ptr);
+    free(ptr);
 
-	return (newptr);
+    return (newptr);
 }
 
 /**
- * _memcpy_unique - copies information between void pointers.
- * @newptr: destination pointer.
- * @ptr: source pointer.
+ * custom_memcpy - copies information between void pointers.
+ * @new_pointer: destination pointer.
+ * @pointer: source pointer.
  * @size: size of the new pointer.
  *
  * Return: no return.
  */
-void _memcpy_unique(void *newptr, const void *ptr, unsigned int size)
+void custom_memcpy(void *new_pointer, const void *pointer, unsigned int size)
 {
-	char *char_ptr = (char *)ptr;
-	char *char_newptr = (char *)newptr;
-	unsigned int i;
+    char *char_pointer = (char *)pointer;
+    char *char_new_pointer = (char *)new_pointer;
+    unsigned int i;
 
-	for (i = 0; i < size; i++)
-		char_newptr[i] = char_ptr[i];
+    for (i = 0; i < size; i++)
+        char_new_pointer[i] = char_pointer[i];
 }
+
