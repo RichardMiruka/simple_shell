@@ -33,6 +33,11 @@ typedef struct command_line_list
 /* Function declarations */
 char *unique_read_line(int *i_eof);
 
+/* Function prototypes */
+void set_shell_data(shell_data_t *datash, char **av);
+void shell_loop(shell_data_t *datash);
+void free_shell_data(shell_data_t *datash);
+
 typedef struct shell_data
 {
     char **arguments;   /* Tokenized command line arguments */
