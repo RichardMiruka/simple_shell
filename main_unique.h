@@ -22,7 +22,7 @@ extern char **my_environ;
 
 /* Structure to store command lines in a singly linked list */
 
-typedef struct command_lined_list
+typedef struct command_line_list
 {
     char *line;
     struct command_line_list *next;
@@ -42,23 +42,13 @@ typedef struct shell_data
 
 /* Structure to store variables in a singly linked list */
 
-typedef struct line_list_s
+typedef struct replace_var_list
 {
-    char *line;
-    struct line_list_s *next;
-} line_list;
-
-/**
- * struct command_line_list - singly linked list
- * @line: command line
- * @next: next node
- * Description: singly linked list to store command lines
- */
-typedef struct command_line_list
-{
-    char *line;
-    struct command_line_list *next;
-} command_line_list_t;
+    int variable_length;
+    char *variable;
+    int value_length;
+    struct replace_var_list *next;
+} replace_var_list_t;
 
 /* Structure for built-in commands */
 
@@ -200,10 +190,8 @@ int is_digit(const char *string);
 
 /* aux_string2.c */
 char *string_duplicate(const char *string);
-int string_length(const char *string); // Remove this line from line 206
+int string_length(const char *string);
 char *find_character(char *string, char character);
 int string_span(char *string, char *characters);
-
-
 
 #endif
