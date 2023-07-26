@@ -13,15 +13,15 @@ char *error_exit_shell(shell_data_t *shell_data)
     char *ver_str;
 
     ver_str = aux_itoa(shell_data->line_counter);
-    length = _strlen(shell_data->av[0]) + _strlen(ver_str);
-    length += _strlen(shell_data->arguments[0]) + _strlen(shell_data->arguments[1]) + 23;
+    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str);
+    length += _strlen(shell_data->arguments[1]) + 23;
     error = malloc(sizeof(char) * (length + 1));
     if (error == NULL)
     {
         free(ver_str);
         return NULL;
     }
-    _strcpy(error, shell_data->av[0]);
+    _strcpy(error, shell_data->arguments[0]);
     _strcat(error, ": ");
     _strcat(error, ver_str);
     _strcat(error, ": ");
@@ -47,7 +47,7 @@ char *error_not_found(shell_data_t *shell_data)
     char *ver_str;
 
     ver_str = aux_itoa(shell_data->line_counter);
-    length = _strlen(shell_data->av[0]) + _strlen(ver_str);
+    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str);
     length += _strlen(shell_data->arguments[0]) + 16;
     error = malloc(sizeof(char) * (length + 1));
     if (error == NULL)
@@ -56,7 +56,7 @@ char *error_not_found(shell_data_t *shell_data)
         free(ver_str);
         return NULL;
     }
-    _strcpy(error, shell_data->av[0]);
+    _strcpy(error, shell_data->arguments[0]);
     _strcat(error, ": ");
     _strcat(error, ver_str);
     _strcat(error, ": ");
@@ -89,7 +89,7 @@ char *error_get_cd(shell_data_t *shell_data)
         len_id = _strlen(shell_data->arguments[1]);
     }
 
-    length = _strlen(shell_data->av[0]) + _strlen(shell_data->arguments[0]);
+    length = _strlen(shell_data->arguments[0]);
     length += _strlen(ver_str) + _strlen(msg) + len_id + 5;
     error = malloc(sizeof(char) * (length + 1));
 
@@ -119,7 +119,7 @@ char *strcat_cd(shell_data_t *shell_data, char *msg, char *error, char *ver_str)
 {
     char *illegal_flag;
 
-    _strcpy(error, shell_data->av[0]);
+    _strcpy(error, shell_data->arguments[0]);
     _strcat(error, ": ");
     _strcat(error, ver_str);
     _strcat(error, ": ");
