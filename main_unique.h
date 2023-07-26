@@ -30,6 +30,9 @@ typedef struct command_line_list
 
 /* Structure to hold data relevant to the shell's runtime */
 
+/* Function declarations */
+char *unique_read_line(int *i_eof);
+
 typedef struct shell_data
 {
     char **arguments;   /* Tokenized command line arguments */
