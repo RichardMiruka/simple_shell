@@ -122,7 +122,7 @@ char *_which(char *cmd, shell_data_t *shell_data)
     {
         ptr_path = string_duplicate(path);
         len_cmd = string_length(cmd);
-        token_path = strtok(ptr_path, ":");
+        token_path = _strtok(ptr_path, ":");
         i = 0;
         while (token_path != NULL)
         {
@@ -140,7 +140,7 @@ char *_which(char *cmd, shell_data_t *shell_data)
                 return (dir);
             }
             free(dir);
-            token_path = strtok(NULL, ":");
+            token_path = _strtok(NULL, ":");
         }
         free(ptr_path);
         if (stat(cmd, &st) == 0)
@@ -162,11 +162,9 @@ char *_which(char *cmd, shell_data_t *shell_data)
 int cmd_exec(shell_data_t *shell_data)
 {
     pid_t pd;
-    pid_t wpd;
     int state;
     int exec;
     char *dir;
-    (void)wpd;
 
     exec = is_executable(shell_data);
     if (exec == -1)
@@ -196,7 +194,7 @@ int cmd_exec(shell_data_t *shell_data)
     {
         do
         {
-            wpd = waitpid(pd, &state, WUNTRACED);
+            waitpid(pd, &state, WUNTRACED);
         } while (!WIFEXITED(state) && !WIFSIGNALED(state));
     }
 
