@@ -1,6 +1,23 @@
 #include "main.h"
-#include <signal.h>
 
+/**
+ * free_data - frees data structure
+ *
+ * @datash: data structure
+ * Return: no return
+ */
+void free_data(data_shell *datash)
+{
+	unsigned int i;
+
+	for (i = 0; datash->_environ[i]; i++)
+	{
+		free(datash->_environ[i]);
+	}
+
+	free(datash->_environ);
+	free(datash->pid);
+}
 
 /**
  * main - Entry point
@@ -12,68 +29,45 @@
  */
 int main(int ac, char **av)
 {
-    shell_data_t datash;
-    (void)ac; 
+	data_shell datash;
+	(void) ac;
 
-    signal(SIGINT, get_sigint_handler);
-    set_shell_data(&datash, av);
-    shell_loop(&datash);
-    free_shell_data(&datash);
-
-    if (datash.last_status < 0)
-        return 255;
-
-    return datash.last_status;
+	signal(SIGINT, get_sigint);
+	set_data(&datash, av);
+	shell_loop(&datash);
+	free_data(&datash);
+	if (datash.status < 0)
+		return (255);
+	return (datash.status);
 }
 
 /**
- * free_shell_data - Frees shell_data structure
+ * set_data - Initialize data structure
  *
- * @datash: Pointer to the shell_data_t struct
+ * @datash: data structure
+ * @av: argument vector
  * Return: no return
  */
-void free_shell_data(shell_data_t *datash)
+void set_data(data_shell *datash, char **av)
 {
-    unsigned int i;
+	unsigned int i;
 
-    for (i = 0; datash->shell_env[i]; i++)
-    {
-        free(datash->shell_env[i]);
-    }
+	datash->av = av;
+	datash->input = NULL;
+	datash->args = NULL;
+	datash->status = 0;
+	datash->counter = 1;
 
-    free(datash->shell_env);
-    free(datash->shell_pid);
+	for (i = 0; environ[i]; i++)
+		;
+
+	datash->_environ = malloc(sizeof(char *) * (i + 1));
+
+	for (i = 0; environ[i]; i++)
+	{
+		datash->_environ[i] = _strdup(environ[i]);
+	}
+
+	datash->_environ[i] = NULL;
+	datash->pid = aux_itoa(getpid());
 }
-
-/**
- * set_shell_data - Initializes the shell_data structure
- *
- * @datash: Pointer to the shell_data_t struct
- * @av: Argument vector
- *
- * Return: no return
- */
-void set_shell_data(shell_data_t *datash, char **av)
-{
-    unsigned int i;
-
-    datash->arguments = av;
-    datash->command_line = NULL;
-    datash->last_status = 0;
-    datash->line_counter = 1;
-
-    for (i = 0; my_environ[i]; i++)
-        ;
-
-    datash->shell_env = malloc(sizeof(char *) * (i + 1));
-
-    for (i = 0; my_environ[i]; i++)
-    {
-        datash->shell_env[i] = string_duplicate(my_environ[i]);
-    }
-
-    datash->shell_env[i] = NULL;
-    datash->shell_pid = integer_to_string(getpid());
-}
-
-
