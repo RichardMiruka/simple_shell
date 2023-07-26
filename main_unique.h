@@ -183,13 +183,6 @@ char **custom_reallocate_double_pointer(char **pointer, unsigned int old_size, u
 /* aux_string3.c */
 void reverse_string(char *string);
 
-/* aux_string2.c */
-char *string_duplicate(const char *string);
-int string_length(const char *string);
-int compare_strings(char string1[], const char *string2);
-char *find_character(char *string, char character);
-int string_span(char *string, char *characters);
-
 /* aux_lists2.c */
 replace_var_list_t *add_replace_variable_node(replace_var_list_t **head, int variable_length, char *variable, int value_length);
 void free_replace_variable_list(replace_var_list_t **head);
@@ -206,5 +199,13 @@ char *copy_string(char *destination, char *source);
 int compare_strings(char *string1, char *string2);
 char *find_character(char *string, char character);
 int is_digit(const char *string);
+
+/* aux_string2.c */
+char *string_duplicate(const char *string);
+int string_length(const char *string); // Remove this line from line 206
+char *find_character(char *string, char character);
+int string_span(char *string, char *characters);
+
+
 
 #endif
