@@ -28,5 +28,5 @@ int unique_help(shell_data_t *shell_data)
         write(STDERR_FILENO, shell_data->arguments[0], _strlen(shell_data->arguments[0]));
 
     shell_data->last_status = 0;
-    return (1);
+    return 1;
 }
