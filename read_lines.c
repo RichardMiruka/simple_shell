@@ -1,10 +1,10 @@
 #include "main_unique.h"
 
 /**
- * unique_read_line - reads the input string.
+ * unique_read_line - Reads the input string from stdin using getline.
  *
- * @i_eof: return value of getline function
- * Return: input string
+ * @i_eof: Pointer to store the return value of getline function (EOF status).
+ * Return: Input string.
  */
 char *unique_read_line(int *i_eof)
 {
@@ -15,4 +15,5 @@ char *unique_read_line(int *i_eof)
 
     return (input);
 }
+
 
