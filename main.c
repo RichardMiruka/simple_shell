@@ -1,4 +1,5 @@
 #include "main_unique.h"
+#include <signal.h>
 
 /**
  * main - Entry point
@@ -55,9 +56,8 @@ void set_shell_data(shell_data_t *datash, char **av)
 {
     unsigned int i;
 
-    datash->av = av;
+    datash->arguments = av;
     datash->command_line = NULL;
-    datash->arguments = NULL;
     datash->last_status = 0;
     datash->line_counter = 1;
 
