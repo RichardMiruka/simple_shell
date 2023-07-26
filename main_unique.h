@@ -22,7 +22,7 @@ extern char **my_environ;
 
 /* Structure to store command lines in a singly linked list */
 
-typedef struct command_line_list
+typedef struct command_lined_list
 {
     char *line;
     struct command_line_list *next;
