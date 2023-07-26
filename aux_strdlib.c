@@ -28,7 +28,7 @@ int _atoi(char *s)
 
     for (i = count - size; i < count; i++)
     {
-        oi = oi + ((*(s + i) - 48) * m);
+        oi = oi + ((*(s + i) - '0') * m);
         m /= 10;
     }
     return (oi * pn);
@@ -98,3 +98,4 @@ char *aux_itoa(int n)
 
     return (buffer);
 }
+
