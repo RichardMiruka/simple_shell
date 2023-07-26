@@ -1,12 +1,14 @@
 #include "main_unique.h"
 
 /**
- * handle_sigint - Handles the SIGINT signal (Ctrl + C) in the shell prompt.
+ * handle_sigint - Signal handler for SIGINT (Ctrl+C)
  *
- * @sig: The signal number (unused in this function).
+ * @sig: Signal number (unused)
  */
 void handle_sigint(int sig)
 {
     (void)sig; // Unused parameter, silence compiler warning.
-    write(STDOUT_FILENO, "\n^-^ ", 5); // Display a custom message when Ctrl + C is pressed.
+    write(STDOUT_FILENO, "\n$ ", 3);
+    fflush(stdout);
 }
+
