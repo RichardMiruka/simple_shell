@@ -42,13 +42,11 @@ typedef struct shell_data
 
 /* Structure to store variables in a singly linked list */
 
-typedef struct replace_var_list
+typedef struct line_list_s
 {
-    int variable_length;
-    char *variable;
-    int value_length;
-    struct replace_var_list *next;
-} replace_var_list_t;
+    char *line;
+    struct line_list_s *next;
+} line_list;
 
 /**
  * struct command_line_list - singly linked list
