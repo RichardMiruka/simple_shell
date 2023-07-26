@@ -2,9 +2,9 @@
 
 /**
  * error_exit_shell - generic error message for exit in get_exit
- * @shell_data: data relevant (counter, arguments)
+ * @shell_data: Pointer to the shell_data_t struct.
  *
- * Return: Error message
+ * Return: Error message.
  */
 char *error_exit_shell(shell_data_t *shell_data)
 {
@@ -13,8 +13,7 @@ char *error_exit_shell(shell_data_t *shell_data)
     char *ver_str;
 
     ver_str = aux_itoa(shell_data->line_counter);
-    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str);
-    length += _strlen(shell_data->arguments[1]) + 23;
+    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str) + _strlen(shell_data->arguments[1]) + 23;
     error = malloc(sizeof(char) * (length + 1));
     if (error == NULL)
     {
@@ -36,9 +35,9 @@ char *error_exit_shell(shell_data_t *shell_data)
 
 /**
  * error_not_found - generic error message for command not found
- * @shell_data: data relevant (counter, arguments)
+ * @shell_data: Pointer to the shell_data_t struct.
  *
- * Return: Error message
+ * Return: Error message.
  */
 char *error_not_found(shell_data_t *shell_data)
 {
@@ -47,12 +46,10 @@ char *error_not_found(shell_data_t *shell_data)
     char *ver_str;
 
     ver_str = aux_itoa(shell_data->line_counter);
-    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str);
-    length += _strlen(shell_data->arguments[0]) + 16;
+    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str) + _strlen(shell_data->arguments[0]) + 16;
     error = malloc(sizeof(char) * (length + 1));
     if (error == NULL)
     {
-        free(error);
         free(ver_str);
         return NULL;
     }
@@ -68,9 +65,9 @@ char *error_not_found(shell_data_t *shell_data)
 
 /**
  * error_get_cd - error message for cd command in get_cd
- * @shell_data: data relevant (directory)
+ * @shell_data: Pointer to the shell_data_t struct.
  *
- * Return: Error message
+ * Return: Error message.
  */
 char *error_get_cd(shell_data_t *shell_data)
 {
@@ -89,8 +86,7 @@ char *error_get_cd(shell_data_t *shell_data)
         len_id = _strlen(shell_data->arguments[1]);
     }
 
-    length = _strlen(shell_data->arguments[0]);
-    length += _strlen(ver_str) + _strlen(msg) + len_id + 5;
+    length = _strlen(shell_data->arguments[0]) + _strlen(ver_str) + _strlen(msg) + len_id + 5;
     error = malloc(sizeof(char) * (length + 1));
 
     if (error == NULL)
@@ -108,12 +104,12 @@ char *error_get_cd(shell_data_t *shell_data)
 
 /**
  * strcat_cd - function that concatenates the message for cd error
- * @shell_data: data relevant (directory)
- * @msg: message to print
- * @error: output message
- * @ver_str: counter lines
+ * @shell_data: Pointer to the shell_data_t struct.
+ * @msg: message to print.
+ * @error: output message.
+ * @ver_str: counter lines.
  *
- * Return: error message
+ * Return: Error message.
  */
 char *strcat_cd(shell_data_t *shell_data, char *msg, char *error, char *ver_str)
 {
