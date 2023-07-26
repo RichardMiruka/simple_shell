@@ -1,4 +1,5 @@
 #include "main_unique.h"
+#include <stdlib.h>
 
 /**
  * free_replace_variable_list - frees a replace_var_list.
@@ -7,19 +8,20 @@
  */
 void free_replace_variable_list(replace_var_list_t **head)
 {
-	replace_var_list_t *temp;
-	replace_var_list_t *curr;
+    replace_var_list_t *temp;
+    replace_var_list_t *curr;
 
-	if (head != NULL)
-	{
-		curr = *head;
-		while ((temp = curr) != NULL)
-		{
-			curr = curr->next;
-			free(temp);
-		}
-		*head = NULL;
-	}
+    if (head != NULL)
+    {
+        curr = *head;
+        while ((temp = curr) != NULL)
+        {
+            curr = curr->next;
+            free(temp->variable); // Free the variable name before freeing the node
+            free(temp);
+        }
+        *head = NULL;
+    }
 }
 
 /**
@@ -32,31 +34,38 @@ void free_replace_variable_list(replace_var_list_t **head)
  */
 replace_var_list_t *add_replace_variable_node(replace_var_list_t **head, int variable_length, char *variable, int value_length)
 {
-	replace_var_list_t *new, *temp;
+    replace_var_list_t *new, *temp;
 
-	new = malloc(sizeof(replace_var_list_t));
-	if (new == NULL)
-		return (NULL);
+    new = malloc(sizeof(replace_var_list_t));
+    if (new == NULL)
+        return (NULL);
 
-	new->variable_length = variable_length;
-	new->variable = variable;
-	new->value_length = value_length;
+    new->variable_length = variable_length;
+    new->variable = malloc(variable_length + 1); // Allocate memory for the variable name
+    if (new->variable == NULL)
+    {
+        free(new);
+        return (NULL);
+    }
+    copy_string(new->variable, variable); // Copy the variable name to the new node
 
-	new->next = NULL;
-	temp = *head;
+    new->value_length = value_length;
 
-	if (temp == NULL)
-	{
-		*head = new;
-	}
-	else
-	{
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = new;
-	}
+    new->next = NULL;
+    temp = *head;
 
-	return (*head);
+    if (temp == NULL)
+    {
+        *head = new;
+    }
+    else
+    {
+        while (temp->next != NULL)
+            temp = temp->next;
+        temp->next = new;
+    }
+
+    return (*head);
 }
 
 
