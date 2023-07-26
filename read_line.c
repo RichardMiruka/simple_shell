@@ -68,28 +68,20 @@ ssize_t read_line(char **lineptr, size_t *n, FILE *stream)
 /**
  * assign_line - Assigns the line variable for read_line.
  * @lineptr: Buffer that stores the input string.
- * @buffer: String that is being assigned to line.
  * @n: Size of line.
+ * @buffer: String that is being assigned to line.
  * @j: Size of buffer.
  */
 void assign_line(char **lineptr, size_t *n, char *buffer, size_t j)
 {
-    if (*lineptr == NULL)
+    if (*lineptr == NULL || *n < j)
     {
         if (j > BUFFER_SIZE)
             *n = j;
         else
             *n = BUFFER_SIZE;
 
-        *lineptr = buffer;
-    }
-    else if (*n < j)
-    {
-        if (j > BUFFER_SIZE)
-            *n = j;
-        else
-            *n = BUFFER_SIZE;
-
+        free(*lineptr);
         *lineptr = buffer;
     }
     else
@@ -99,3 +91,4 @@ void assign_line(char **lineptr, size_t *n, char *buffer, size_t j)
         free(buffer);
     }
 }
+
