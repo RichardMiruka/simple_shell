@@ -1,5 +1,5 @@
-#ifndef _MAIN_UNIQUE_H_
-#define _MAIN_UNIQUE_H_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -32,11 +32,6 @@ typedef struct command_line_list
 
 /* Function declarations */
 char *unique_read_line(int *i_eof);
-
-/* Function prototypes */
-void set_shell_data(shell_data_t *datash, char **av);
-void shell_loop(shell_data_t *datash);
-void free_shell_data(shell_data_t *datash);
 
 typedef struct shell_data
 {
