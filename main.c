@@ -12,7 +12,7 @@
 int main(int ac, char **av)
 {
     shell_data_t datash;
-    (void)ac; // Unused parameter warning.
+    (void)ac; 
 
     signal(SIGINT, get_sigint_handler);
     set_shell_data(&datash, av);
@@ -26,9 +26,9 @@ int main(int ac, char **av)
 }
 
 /**
- * free_shell_data - frees shell_data structure
+ * free_shell_data - Frees shell_data structure
  *
- * @datash: shell_data structure
+ * @datash: Pointer to the shell_data_t struct
  * Return: no return
  */
 void free_shell_data(shell_data_t *datash)
@@ -47,8 +47,8 @@ void free_shell_data(shell_data_t *datash)
 /**
  * set_shell_data - Initializes the shell_data structure
  *
- * @datash: shell_data structure
- * @av: argument vector
+ * @datash: Pointer to the shell_data_t struct
+ * @av: Argument vector
  *
  * Return: no return
  */
@@ -74,4 +74,5 @@ void set_shell_data(shell_data_t *datash, char **av)
     datash->shell_env[i] = NULL;
     datash->shell_pid = integer_to_string(getpid());
 }
+
 
