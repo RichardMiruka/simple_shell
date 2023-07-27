@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * unique_help - function that retrieves help messages according to the builtin

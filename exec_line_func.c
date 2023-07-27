@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * exec_line - Finds builtins and commands and executes them.

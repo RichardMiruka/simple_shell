@@ -33,8 +33,7 @@ typedef struct command_line_list
 /* Function declarations */
 char *unique_read_line(int *i_eof);
 
-typedef struct shell_data
-{
+typedef struct shell_data {
     char **arguments;   /* Tokenized command line arguments */
     char *command_line; /* Command line entered by the user */
     int last_status;    /* Last status of the shell */

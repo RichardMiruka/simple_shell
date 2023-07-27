@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * error_path_126 - error message for path and failure denied permission.

@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * unique_read_line - Reads the input string from stdin using getline.

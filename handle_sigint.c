@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * handle_sigint - Signal handler for SIGINT (Ctrl+C)

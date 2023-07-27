@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * get_builtin_command - finds and returns a pointer to the builtin function

@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * check_error_cmd - verifies if the user has permissions to access

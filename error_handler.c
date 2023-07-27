@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * error_handler - Handles and displays errors based on the given evaluation value

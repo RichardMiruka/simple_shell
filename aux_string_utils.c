@@ -1,4 +1,4 @@
-#include "main_unique.h"
+#include "main.h"
 
 /**
  * _isdigit - Checks if a string consists of digits only.
