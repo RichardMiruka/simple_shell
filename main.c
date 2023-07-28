@@ -1,39 +1,20 @@
 #include "main.h"
 
 /**
- * free_data - frees data structure
+ * main - Entry point of the shell program
  *
- * @datash: data structure
- * Return: no return
- */
-void free_data(shell_data_t *datash)
-{
-	unsigned int i;
-
-	for (i = 0; datash->_environ[i]; i++)
-	{
-		free(datash->_environ[i]);
-	}
-
-	free(datash->_environ);
-	free(datash->pid);
-}
-
-/**
- * main - Entry point
+ * @ac: argument count (unused in this shell)
+ * @av: argument vector an array of strings representing command-line arguments
  *
- * @ac: argument count
- * @av: argument vector
- *
- * Return: 0 on success.
+ * Return: 0 on success, or the exit status of the shell program.
  */
 int main(int ac, char **av)
 {
-	shell_data_t datash;
-	(void) ac;
+	data_shell datash;
+	(void) ac; 
 
-	signal(SIGINT, get_sigint);
-	set_data(&datash, av);
+	signal(SIGINT, get_sigint); 
+	set_data(&datash, av);     
 	shell_loop(&datash);
 	free_data(&datash);
 	if (datash.status < 0)
@@ -48,7 +29,7 @@ int main(int ac, char **av)
  * @av: argument vector
  * Return: no return
  */
-void set_data(shell_data_t *datash, char **av)
+void set_data(data_shell *datash, char **av)
 {
 	unsigned int i;
 
@@ -70,4 +51,23 @@ void set_data(shell_data_t *datash, char **av)
 
 	datash->_environ[i] = NULL;
 	datash->pid = aux_itoa(getpid());
+}
+
+/**
+ * free_data - frees data structure
+ *
+ * @datash: data structure
+ * Return: no return
+ */
+void free_data(data_shell *datash)
+{
+	unsigned int i;
+
+	for (i = 0; datash->_environ[i]; i++)
+	{
+		free(datash->_environ[i]);
+	}
+
+	free(datash->_environ);
+	free(datash->pid);
 }
