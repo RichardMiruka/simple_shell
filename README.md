@@ -2,7 +2,7 @@
 <h1>Description</h1>
 
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): 
-
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
 Basics of programming, Basics of C, and Basics of thinking like an engineer implemented.
 
 Additional functions are also included.
