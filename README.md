@@ -1,4 +1,5 @@
 # simple_shell
+
 <h1>Description</h1>
 
 A simple UNIX command interpreter that replicates functionalities of the simple shell (sh): 
@@ -8,7 +9,9 @@ Basics of programming, Basics of C, and Basics of thinking like an engineer impl
 Additional functions are also included.
 
 This program was entirely written in C as a milestone project for ALX Africa Software Engineering.
+
 ![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
+
 <h2>Installation</h2>
 
 Clone this repository into your working directory. Files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -std=gnu89
